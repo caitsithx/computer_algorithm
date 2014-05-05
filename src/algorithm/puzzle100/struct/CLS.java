@@ -1,0 +1,1 @@
+package algorithm.puzzle100.struct;
