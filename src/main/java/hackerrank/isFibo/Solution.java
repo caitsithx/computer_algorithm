@@ -1,4 +1,4 @@
-package isFibo;
+package hackerrank.isFibo;
 
 import java.io.BufferedReader;
 import java.io.IOException;

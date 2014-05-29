@@ -131,7 +131,7 @@ package algorithm.puzzle100;///*
 //		if(isGoodGuess(l_tmp)) {
 //		   System.out.println(Arrays.toString(l_tmp));
 //		   m_p2.add(l_tmp);
-//		   //		   enqueue(m_p2, l_tmp);
+//		   //		   add(m_p2, l_tmp);
 //		}
 //		l_guessBefore = l_guessBefore.getRight();
 //	   } while (l_guessBefore != null);
@@ -165,7 +165,7 @@ package algorithm.puzzle100;///*
 //    * @param p_p2
 //    * @param p_tmp
 //    */
-//   private void enqueue(TreeNode p_p2, int[] p_tmp) {
+//   private void add(TreeNode p_p2, int[] p_tmp) {
 //	TreeNode l_p1 = searchSon(p_p2, p_tmp[0]);
 //
 //	if(l_p1 != null) {

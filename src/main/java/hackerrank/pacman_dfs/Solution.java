@@ -1,7 +1,5 @@
-package pacman_dfs;
+package hackerrank.pacman_dfs;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 

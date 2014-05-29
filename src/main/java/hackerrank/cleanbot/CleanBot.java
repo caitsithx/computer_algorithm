@@ -1,10 +1,6 @@
-package cleanbot;
+package hackerrank.cleanbot;
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 public class CleanBot {
     static void next_move(int posr, int posc, String[] board){

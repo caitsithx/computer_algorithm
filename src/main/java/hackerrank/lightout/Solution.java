@@ -1,10 +1,6 @@
-package lightout;
+package hackerrank.lightout;
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 public class Solution {
     /* Complete the function below to print 2 integers separated by a single space which will be your next move */

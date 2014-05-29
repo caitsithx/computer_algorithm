@@ -1,4 +1,4 @@
-package cleanbot;
+package hackerrank.cleanbot;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package flip;
+package hackerrank.flip;
 
 import java.io.BufferedReader;
 import java.io.IOException;
