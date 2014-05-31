@@ -27,10 +27,10 @@ public class DiffIndexTest {
     @Parameterized.Parameters
     public static final Iterable data() {
         return Arrays.asList(
-          new Object[][]{
-//            {new String[] {"Hello", "World"}, new String[] {"Hello", "Apple"}, 1},
-            {new String[] {"Big", "Mac", "Air", "Machine"}, new String[] {"Mac", "Computer", "Hello", "Machine", "OK"}, 4}
-          });
+            new Object[][] {
+                //            {new String[] {"Hello", "World"}, new String[] {"Hello", "Apple"}, 1},
+                {new String[] {"Big", "Mac", "Air", "Machine"}, new String[] {"Mac", "Computer", "Hello", "Machine", "OK"}, 4}
+            });
     }
 
     @Test

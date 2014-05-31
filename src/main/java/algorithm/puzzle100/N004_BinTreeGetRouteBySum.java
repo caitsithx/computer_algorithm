@@ -30,62 +30,60 @@ BinaryTreeNode *m_pRight; // right child of node
  */
 package algorithm.puzzle100;
 
-import org.junit.Test;
-
 import algorithm.puzzle100.struct.ArrayBasedStack;
 import algorithm.puzzle100.struct.TreeNode;
+import org.junit.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N004_BinTreeGetRouteBySum {
-   ArrayBasedStack<Integer> m_routeStack = new ArrayBasedStack<Integer>(1000);
-   
-   
-   public void getRoutes (TreeNode p_root, int p_currentSum) {
-//	TreeNode l_cloned = new TreeNode(p_root.getValue());
-	
-	int l_sumForSubTree = p_currentSum - p_root.getValue();
-	
-	if(l_sumForSubTree == 0 && p_root.getLeft() == null && p_root.getRight() == null) {
-	   for (int l_i = 0; l_i < m_routeStack.size(); l_i++) {
-		System.out.print(m_routeStack.get(l_i));
-		System.out.print(',');
-	   }
-	   System.out.print(p_root.getValue());
-	   System.out.println();
-	} else if(l_sumForSubTree > 0) {
-	   if(l_sumForSubTree > p_root.getValue()) {
-		if(p_root.getRight() != null) {
-		   m_routeStack.push(p_root.getValue());
-		   getRoutes(p_root.getRight(), l_sumForSubTree);
-		   m_routeStack.pop();
-		}
-	   }
-	   
-	   if(p_root.getLeft() != null) {
-		m_routeStack.push(p_root.getValue());
-		getRoutes(p_root.getLeft(), l_sumForSubTree);
-		m_routeStack.pop();
-	   }
-	} /*else if(l_sumForSubTree < 0) {
-	   l_cloned = null;
+    ArrayBasedStack<Integer> m_routeStack = new ArrayBasedStack<Integer>(1000);
+
+
+    public void getRoutes(TreeNode p_root, int p_currentSum) {
+        //	TreeNode l_cloned = new TreeNode(p_root.getValue());
+
+        int l_sumForSubTree = p_currentSum - p_root.getValue();
+
+        if (l_sumForSubTree == 0 && p_root.getLeft() == null && p_root.getRight() == null) {
+            for (int l_i = 0; l_i < m_routeStack.size(); l_i++) {
+                System.out.print(m_routeStack.get(l_i));
+                System.out.print(',');
+            }
+            System.out.print(p_root.getValue());
+            System.out.println();
+        } else if (l_sumForSubTree > 0) {
+            if (l_sumForSubTree > p_root.getValue()) {
+                if (p_root.getRight() != null) {
+                    m_routeStack.push(p_root.getValue());
+                    getRoutes(p_root.getRight(), l_sumForSubTree);
+                    m_routeStack.pop();
+                }
+            }
+
+            if (p_root.getLeft() != null) {
+                m_routeStack.push(p_root.getValue());
+                getRoutes(p_root.getLeft(), l_sumForSubTree);
+                m_routeStack.pop();
+            }
+        } /*else if(l_sumForSubTree < 0) {
+     l_cloned = null;
 	}*/
-   }
-   
-   @Test
-   public void case1() {
-	TreeNode l_4 = new TreeNode(4);
-	TreeNode l_7 = new TreeNode(7);
-	TreeNode l_5 = new TreeNode(5, l_4, l_7);
-	
-	
-	TreeNode l_12 = new TreeNode(12);
-	
-	TreeNode l_10 = new TreeNode(10, l_5, l_12);
-	
-	N004_BinTreeGetRouteBySum l_router = new N004_BinTreeGetRouteBySum();
-	l_router.getRoutes(l_10, 22);
-   }
+    }
+
+    @Test
+    public void case1() {
+        TreeNode l_4 = new TreeNode(4);
+        TreeNode l_7 = new TreeNode(7);
+        TreeNode l_5 = new TreeNode(5, l_4, l_7);
+
+
+        TreeNode l_12 = new TreeNode(12);
+
+        TreeNode l_10 = new TreeNode(10, l_5, l_12);
+
+        N004_BinTreeGetRouteBySum l_router = new N004_BinTreeGetRouteBySum();
+        l_router.getRoutes(l_10, 22);
+    }
 }

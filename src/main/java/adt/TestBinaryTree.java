@@ -19,7 +19,7 @@ public class TestBinaryTree {
 
         int[] vals = {5, 3, 7, 1, 2, 4, 6, 8, 9};
 
-        for(int i = 0; i < vals.length; i ++) {
+        for (int i = 0; i < vals.length; i++) {
             bTree.insert(vals[i]);
         }
 
@@ -37,7 +37,7 @@ public class TestBinaryTree {
 
         int[] vals = {5, 3, 7, 1, 2, 4, 6, 8, 9};
 
-        for(int i = 0; i < vals.length; i ++) {
+        for (int i = 0; i < vals.length; i++) {
             bTree.insert(vals[i]);
         }
 
@@ -55,7 +55,7 @@ public class TestBinaryTree {
 
         int[] vals = {5, 3, 7, 1, 2, 4, 6, 8, 9};
 
-        for(int i = 0; i < vals.length; i ++) {
+        for (int i = 0; i < vals.length; i++) {
             bTree.insert(vals[i]);
         }
 
@@ -75,7 +75,7 @@ public class TestBinaryTree {
 
         int[] vals = {5, 3, 7, 1, 2, 4, 6, 8, 9};
 
-        for(int i = 0; i < vals.length; i ++) {
+        for (int i = 0; i < vals.length; i++) {
             bTree.insert(vals[i]);
         }
 

@@ -6,22 +6,6 @@ import java.util.Comparator;
  * Created by caitsithx on 14-5-27.
  */
 public class BinaryTree<T> {
-    private class Node<T> {
-        private int count = 0;
-        private T value;
-        private Node<T> left;
-        private Node<T> right;
-
-        public Node(T newVal) {
-            value = newVal;
-            count = 1;
-        }
-
-        public String toString() {
-            return value.toString();
-        }
-    }
-
     private Node<T> root;
     private Comparator<T> comparator;
 
@@ -30,11 +14,11 @@ public class BinaryTree<T> {
     }
 
     public void insert(T newVal) {
-        if(newVal == null) {
+        if (newVal == null) {
             throw new IllegalArgumentException();
         }
 
-        if(root == null) {
+        if (root == null) {
             root = new Node<>(newVal);
             return;
         }
@@ -42,36 +26,36 @@ public class BinaryTree<T> {
         Node<T> tmp = root;
         int compRes = -1;
 
-        while(tmp != null) {
+        while (tmp != null) {
             compRes = comparator.compare(newVal, tmp.value);
             if (compRes > 0) {
-                if(tmp.right == null) {
+                if (tmp.right == null) {
                     tmp.right = new Node<>(newVal);
                     break;
                 }
                 tmp = tmp.right;
             } else if (compRes < 0) {
-                if(tmp.left == null) {
+                if (tmp.left == null) {
                     tmp.left = new Node<>(newVal);
                     break;
                 }
                 tmp = tmp.left;
             } else {
-                tmp.count ++;
+                tmp.count++;
                 break;
             }
         }
     }
 
     public boolean find(T val) {
-        if(val == null) {
+        if (val == null) {
             throw new IllegalArgumentException();
         }
 
         Node<T> tmp = root;
         int compRes = -1;
 
-        while(tmp != null) {
+        while (tmp != null) {
             compRes = comparator.compare(val, tmp.value);
             if (compRes > 0) {
                 tmp = tmp.right;
@@ -86,11 +70,11 @@ public class BinaryTree<T> {
     }
 
     public boolean delete(T val) {
-        if(val == null) {
+        if (val == null) {
             throw new IllegalArgumentException();
         }
 
-        if(root == null) {
+        if (root == null) {
             return false;
         }
 
@@ -99,7 +83,7 @@ public class BinaryTree<T> {
         int compRes = -1;
 
         boolean leftOrRight = false;
-        while(tmp != null) {
+        while (tmp != null) {
             compRes = comparator.compare(val, tmp.value);
             if (compRes > 0) {
                 tmpParent = tmp;
@@ -110,10 +94,10 @@ public class BinaryTree<T> {
                 tmp = tmp.left;
                 leftOrRight = true;
             } else {
-                if(tmpParent == null) {
+                if (tmpParent == null) {
                     root = delete(root);
                 } else {
-                    if(leftOrRight) {
+                    if (leftOrRight) {
                         tmpParent.left = delete(tmp);
                     } else {
                         tmpParent.right = delete(tmp);
@@ -127,11 +111,11 @@ public class BinaryTree<T> {
     }
 
     private Node<T> delete(Node<T> node) {
-        if(node == null) {
+        if (node == null) {
             throw new IllegalArgumentException();
         }
 
-        if(node.left != null && node.right != null) {
+        if (node.left != null && node.right != null) {
             Node<T> tmpParent = deleteMin(node.right);
             tmpParent.left = node.left;
             return tmpParent;
@@ -142,21 +126,21 @@ public class BinaryTree<T> {
     }
 
     private Node<T> deleteMin(Node<T> right) {
-        if(right == null) {
+        if (right == null) {
             throw new IllegalArgumentException();
         }
 
-        if(right.left == null) {
+        if (right.left == null) {
             return right;
         }
 
         Node<T> tmpParent = right;
         Node<T> tmp = right.left;
-        while(tmp.left != null) {
+        while (tmp.left != null) {
             tmp = tmp.left;
         }
 
-        if(tmp.right != null) {
+        if (tmp.right != null) {
             tmpParent.left = tmp.right;
         } else {
             tmpParent.left = null;
@@ -165,6 +149,22 @@ public class BinaryTree<T> {
         tmp.right = right;
 
         return tmp;
+    }
+
+    private class Node<T> {
+        private int count = 0;
+        private T value;
+        private Node<T> left;
+        private Node<T> right;
+
+        public Node(T newVal) {
+            value = newVal;
+            count = 1;
+        }
+
+        public String toString() {
+            return value.toString();
+        }
     }
 
 }

@@ -32,62 +32,60 @@ struct BSTreeNode // a node in the binary search tree (BST)
  */
 package algorithm.puzzle100;
 
-import org.junit.Test;
-
 import algorithm.puzzle100.struct.TreeNode;
+import org.junit.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N015_BinTreeReverseRecursively {
 
-   public void reverse(TreeNode p_root) {
-	if(p_root == null) {
-	   return;
-	}
-	
-	TreeNode l_tmp = p_root.getLeft();
-	p_root.setLeft(p_root.getRight());
-	p_root.setRight(l_tmp);
-	
-	reverse(p_root.getLeft());
-	reverse(p_root.getRight());
-   }
-   
-   @Test
-   public void case1() {
-	TreeNode l_4 = new TreeNode(4);
-	TreeNode l_7 = new TreeNode(7);
-	TreeNode l_5 = new TreeNode(5, l_4, l_7);
+    public void reverse(TreeNode p_root) {
+        if (p_root == null) {
+            return;
+        }
+
+        TreeNode l_tmp = p_root.getLeft();
+        p_root.setLeft(p_root.getRight());
+        p_root.setRight(l_tmp);
+
+        reverse(p_root.getLeft());
+        reverse(p_root.getRight());
+    }
+
+    @Test
+    public void case1() {
+        TreeNode l_4 = new TreeNode(4);
+        TreeNode l_7 = new TreeNode(7);
+        TreeNode l_5 = new TreeNode(5, l_4, l_7);
 
 
-	TreeNode l_12 = new TreeNode(12);
+        TreeNode l_12 = new TreeNode(12);
 
-	TreeNode l_10 = new TreeNode(10, l_5, l_12);
+        TreeNode l_10 = new TreeNode(10, l_5, l_12);
 
-	N015_BinTreeReverseRecursively l_reverse = new N015_BinTreeReverseRecursively();
-	l_reverse.reverse(l_10);
-	System.out.println(l_10);
-   }
-   
-   @Test
-   public void case2() {
-	TreeNode l_4 = new TreeNode(4);
-	TreeNode l_7 = new TreeNode(7);
-	TreeNode l_5 = new TreeNode(5, l_4, l_7);
+        N015_BinTreeReverseRecursively l_reverse = new N015_BinTreeReverseRecursively();
+        l_reverse.reverse(l_10);
+        System.out.println(l_10);
+    }
 
-	TreeNode l_15 = new TreeNode(15);
-	TreeNode l_14 = new TreeNode(14, null, l_15);
+    @Test
+    public void case2() {
+        TreeNode l_4 = new TreeNode(4);
+        TreeNode l_7 = new TreeNode(7);
+        TreeNode l_5 = new TreeNode(5, l_4, l_7);
 
-	TreeNode l_16 = new TreeNode(16);
-	TreeNode l_11 = new TreeNode(11, l_16, null);
-	TreeNode l_12 = new TreeNode(12, l_14, l_11);
+        TreeNode l_15 = new TreeNode(15);
+        TreeNode l_14 = new TreeNode(14, null, l_15);
 
-	TreeNode l_10 = new TreeNode(10, l_5, l_12);
+        TreeNode l_16 = new TreeNode(16);
+        TreeNode l_11 = new TreeNode(11, l_16, null);
+        TreeNode l_12 = new TreeNode(12, l_14, l_11);
 
-	N015_BinTreeReverseRecursively l_reverse = new N015_BinTreeReverseRecursively();
-	l_reverse.reverse(l_10);
-	System.out.println(l_10);
-   }
+        TreeNode l_10 = new TreeNode(10, l_5, l_12);
+
+        N015_BinTreeReverseRecursively l_reverse = new N015_BinTreeReverseRecursively();
+        l_reverse.reverse(l_10);
+        System.out.println(l_10);
+    }
 }

@@ -17,57 +17,56 @@
  */
 package algorithm.puzzle100;
 
-import java.util.Arrays;
-
 import org.junit.Test;
+
+import java.util.Arrays;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N003_MaxSubList1 {
-   
-   public int[] getSubList(int[] p_input) {
-	//TODO CHECK INPUT
-	
-	int[] l_max = {Integer.MIN_VALUE, -1, -1};
-	int[] l_currentSum = {0, 0, 0};
-	
-	for (int l_i = 0; l_i < p_input.length; l_i++) {
-	   l_currentSum[0] += p_input[l_i];
-	   l_currentSum[2] = l_i;
-	   
-	   if (l_currentSum[0] > l_max[0]) {
-		System.arraycopy(l_currentSum, 0, l_max, 0, l_currentSum.length);
-	   }
-	   
-	   if(l_currentSum[0] < 0) {
-		l_currentSum[0] = 0;
-		l_currentSum[1] = l_i + 1;
-		l_currentSum[2] = l_i + 1;
-	   } 
-	}
-	
-	return l_max;
-   }
 
-   @Test
-   public void case1() {
-	N003_MaxSubList1 l_msl = new N003_MaxSubList1();
-	int[] l_max = l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
-	System.out.println(Arrays.toString(l_max));
-	
-	l_max = l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(Arrays.toString(l_max));
-	
-	l_max = l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(Arrays.toString(l_max));
-	
-	l_max = l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(Arrays.toString(l_max));
-	
-	l_max = l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
-	System.out.println(Arrays.toString(l_max));
-   }
+    public int[] getSubList(int[] p_input) {
+        //TODO CHECK INPUT
+
+        int[] l_max = {Integer.MIN_VALUE, -1, -1};
+        int[] l_currentSum = {0, 0, 0};
+
+        for (int l_i = 0; l_i < p_input.length; l_i++) {
+            l_currentSum[0] += p_input[l_i];
+            l_currentSum[2] = l_i;
+
+            if (l_currentSum[0] > l_max[0]) {
+                System.arraycopy(l_currentSum, 0, l_max, 0, l_currentSum.length);
+            }
+
+            if (l_currentSum[0] < 0) {
+                l_currentSum[0] = 0;
+                l_currentSum[1] = l_i + 1;
+                l_currentSum[2] = l_i + 1;
+            }
+        }
+
+        return l_max;
+    }
+
+    @Test
+    public void case1() {
+        N003_MaxSubList1 l_msl = new N003_MaxSubList1();
+        int[] l_max = l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
+        System.out.println(Arrays.toString(l_max));
+
+        l_max = l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(Arrays.toString(l_max));
+
+        l_max = l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(Arrays.toString(l_max));
+
+        l_max = l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(Arrays.toString(l_max));
+
+        l_max = l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
+        System.out.println(Arrays.toString(l_max));
+    }
 
 }

@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Solution {
+    boolean ate = false;
+    LinkedList<Dot> path = new LinkedList<Dot>();
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -19,14 +22,14 @@ public class Solution {
 
         String grid[] = new String[r];
 
-        for(int i = 0; i < r; i++) {
+        for (int i = 0; i < r; i++) {
             grid[i] = in.next();
         }
 
-        dfs( r, c, pacman_r, pacman_c, food_r, food_c, grid);
+        dfs(r, c, pacman_r, pacman_c, food_r, food_c, grid);
     }
 
-    static void dfs(int r, int c, int pacman_r, int pacman_c, int food_r, int food_c, String [] grid){
+    static void dfs(int r, int c, int pacman_r, int pacman_c, int food_r, int food_c, String[] grid) {
         Solution sol = new Solution();
         Dot dot = sol.new Dot();
         dot.aChar = 'P';
@@ -39,62 +42,26 @@ public class Solution {
 
         System.out.println(sol.path.size());
 
-        for(Dot dot1 : sol.path) {
+        for (Dot dot1 : sol.path) {
             System.out.println(dot1);
         }
     }
 
-    class Dot {
-        int rowNum, columnNum;
-        char aChar;
-
-        public String toString() {
-            StringBuilder sb = new StringBuilder();
-            sb.append(rowNum).append(' ').append(columnNum);
-            return sb.toString();
-        }
-
-        public int hashCode() {
-            int code = rowNum;
-            code = columnNum + 37 * code;
-            code += aChar + 37 * code;
-
-            return code;
-        }
-
-        public boolean equals(Object another) {
-            if(!(another instanceof Dot)) {
-                return  false;
-            }
-
-            Dot anotherDot = (Dot)another;
-            return anotherDot.columnNum == columnNum && anotherDot.rowNum == rowNum && anotherDot.aChar == aChar;
-        }
-
-    }
-
-    enum Direction {
-        DOWN,RIGHT,LEFT,UP
-    }
-
-    boolean ate = false;
-
-    LinkedList<Dot> path = new LinkedList<Dot>();
     public boolean travelNeighbors(String[] grid, LinkedList<Dot> currentPath) {
-        if(currentPath.getLast().aChar == '.') {
+        if (currentPath.getLast().aChar == '.') {
             path = currentPath;
             return true;
         }
 
-        for(Direction direct : Direction.values()) {
+        for (Direction direct : Direction.values()) {
             try {
                 Dot newDot = move(grid, currentPath.getLast().rowNum, currentPath.getLast().columnNum, direct);
 
-                if(currentPath.contains(newDot)) {
+                if (currentPath.contains(newDot)) {
                     continue;
                 }
 
-                if(newDot.aChar == '%') {
+                if (newDot.aChar == '%') {
                     continue;
                 }
 
@@ -102,7 +69,7 @@ public class Solution {
                 newPath.addAll(currentPath);
                 newPath.add(newDot);
 
-                if(travelNeighbors(grid, newPath)) {
+                if (travelNeighbors(grid, newPath)) {
                     return true;
                 }
             } catch (IllegalArgumentException illegalArg) {
@@ -136,12 +103,45 @@ public class Solution {
                 break;
         }
 
-        if(newDot.rowNum < 0 || newDot.rowNum >= grid.length || newDot.columnNum < 0 || newDot.columnNum >= grid[0].length()) {
+        if (newDot.rowNum < 0 || newDot.rowNum >= grid.length || newDot.columnNum < 0 || newDot.columnNum >= grid[0].length()) {
             throw new IllegalArgumentException();
         }
 
         newDot.aChar = grid[newDot.rowNum].charAt(newDot.columnNum);
 
         return newDot;
+    }
+
+    enum Direction {
+        DOWN, RIGHT, LEFT, UP
+    }
+
+    class Dot {
+        int rowNum, columnNum;
+        char aChar;
+
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append(rowNum).append(' ').append(columnNum);
+            return sb.toString();
+        }
+
+        public int hashCode() {
+            int code = rowNum;
+            code = columnNum + 37 * code;
+            code += aChar + 37 * code;
+
+            return code;
+        }
+
+        public boolean equals(Object another) {
+            if (!(another instanceof Dot)) {
+                return false;
+            }
+
+            Dot anotherDot = (Dot) another;
+            return anotherDot.columnNum == columnNum && anotherDot.rowNum == rowNum && anotherDot.aChar == aChar;
+        }
+
     }
 }

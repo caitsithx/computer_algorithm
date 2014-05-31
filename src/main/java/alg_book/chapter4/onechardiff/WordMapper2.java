@@ -13,17 +13,17 @@ public class WordMapper2 {
         Map<String, List<String>> mapping = new TreeMap<>();
 
         Map<Integer, Wrapper> wrapperByLen = new TreeMap<>();
-        for(String word : allWords) {
+        for (String word : allWords) {
             int length = word.length();
 
-            if(wrapperByLen.get(length) == null) {
+            if (wrapperByLen.get(length) == null) {
                 wrapperByLen.put(length, new Wrapper(length));
             }
 
-            for(int i = 0; i < length; i ++) {
+            for (int i = 0; i < length; i++) {
                 String fragment = removeCharAt(word, i);
 
-                if(wrapperByLen.get(length).removeKthCharMap[i].get(fragment) == null) {
+                if (wrapperByLen.get(length).removeKthCharMap[i].get(fragment) == null) {
                     wrapperByLen.get(length).removeKthCharMap[i].put(fragment, new ArrayList<String>());
                 }
 
@@ -31,13 +31,13 @@ public class WordMapper2 {
             }
         }
 
-        for(Wrapper wrapper : wrapperByLen.values()) {
-            for(Map<String, List<String>> repMap : wrapper.removeKthCharMap) {
-                for(List<String> values : repMap.values()) {
+        for (Wrapper wrapper : wrapperByLen.values()) {
+            for (Map<String, List<String>> repMap : wrapper.removeKthCharMap) {
+                for (List<String> values : repMap.values()) {
                     String[] words1 = new String[values.size()];
                     values.toArray(words1);
-                    for(int i = 0; i < words1.length; i ++) {
-                        for(int j = i + 1; j < words1.length; j ++) {
+                    for (int i = 0; i < words1.length; i++) {
+                        for (int j = i + 1; j < words1.length; j++) {
                             WordMapper.updateSequence(mapping, words1[i], words1[j]);
                             WordMapper.updateSequence(mapping, words1[j], words1[i]);
                         }
@@ -55,8 +55,8 @@ public class WordMapper2 {
         int length = word.length();
 
         StringBuilder sb = new StringBuilder(length);
-        for(int j = 0; j < length; j ++) {
-            if(i != j) {
+        for (int j = 0; j < length; j++) {
+            if (i != j) {
                 sb.append(word.charAt(j));
             }
         }

@@ -17,85 +17,84 @@
  */
 package algorithm.puzzle100;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import org.junit.Test;
-
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N003_MaxSubList2 {
-   private int m_max = Integer.MIN_VALUE;
-   private LinkedList<int[]> m_idxList = new LinkedList<>();
-   
-   public void getSubList(int[] p_input) {
-	//TODO CHECK INPUT
-	
-	int[] l_currentSum = {0, 0, 0};
-	
-	for (int l_i = 0; l_i < p_input.length; l_i++) {
-	   l_currentSum[0] += p_input[l_i];
-	   l_currentSum[2] = l_i;
-	   
-	   if (l_currentSum[0] > m_max) {
-		m_max = l_currentSum[0];
-		m_idxList.clear();
-		
-		int[] l_indices = new int[2];
-		System.arraycopy(l_currentSum, 1, l_indices, 0, l_indices.length);
-		m_idxList.add(l_indices);
-	   } else if(l_currentSum[0] == m_max) {
-		int[] l_indices = new int[2];
-		System.arraycopy(l_currentSum, 1, l_indices, 0, l_indices.length);
-		m_idxList.add(l_indices);
-	   }
-	   
-	   if(l_currentSum[0] < 0) {
-		l_currentSum[0] = 0;
-		l_currentSum[1] = l_i + 1;
-		l_currentSum[2] = l_i + 1;
-	   } 
-	}
-   }
+    private int m_max = Integer.MIN_VALUE;
+    private LinkedList<int[]> m_idxList = new LinkedList<>();
 
-   @Test
-   public void case1() {
-	N003_MaxSubList2 l_msl = new N003_MaxSubList2();
-	l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
-	System.out.println(l_msl.m_max);
-	for (int[] l_indices : l_msl.m_idxList) {
-	   System.out.println(Arrays.toString(l_indices));
-	}
-	
-	l_msl = new N003_MaxSubList2();
-	l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(l_msl.m_max);
-	for (int[] l_indices : l_msl.m_idxList) {
-	   System.out.println(Arrays.toString(l_indices));
-	}
-	
-	l_msl = new N003_MaxSubList2();
-	l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(l_msl.m_max);
-	for (int[] l_indices : l_msl.m_idxList) {
-	   System.out.println(Arrays.toString(l_indices));
-	}
-	
-	l_msl = new N003_MaxSubList2();
-	l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(l_msl.m_max);
-	for (int[] l_indices : l_msl.m_idxList) {
-	   System.out.println(Arrays.toString(l_indices));
-	}
-	
-	l_msl = new N003_MaxSubList2();
-	l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
-	System.out.println(l_msl.m_max);
-	for (int[] l_indices : l_msl.m_idxList) {
-	   System.out.println(Arrays.toString(l_indices));
-	}
-   }
+    public void getSubList(int[] p_input) {
+        //TODO CHECK INPUT
+
+        int[] l_currentSum = {0, 0, 0};
+
+        for (int l_i = 0; l_i < p_input.length; l_i++) {
+            l_currentSum[0] += p_input[l_i];
+            l_currentSum[2] = l_i;
+
+            if (l_currentSum[0] > m_max) {
+                m_max = l_currentSum[0];
+                m_idxList.clear();
+
+                int[] l_indices = new int[2];
+                System.arraycopy(l_currentSum, 1, l_indices, 0, l_indices.length);
+                m_idxList.add(l_indices);
+            } else if (l_currentSum[0] == m_max) {
+                int[] l_indices = new int[2];
+                System.arraycopy(l_currentSum, 1, l_indices, 0, l_indices.length);
+                m_idxList.add(l_indices);
+            }
+
+            if (l_currentSum[0] < 0) {
+                l_currentSum[0] = 0;
+                l_currentSum[1] = l_i + 1;
+                l_currentSum[2] = l_i + 1;
+            }
+        }
+    }
+
+    @Test
+    public void case1() {
+        N003_MaxSubList2 l_msl = new N003_MaxSubList2();
+        l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
+        System.out.println(l_msl.m_max);
+        for (int[] l_indices : l_msl.m_idxList) {
+            System.out.println(Arrays.toString(l_indices));
+        }
+
+        l_msl = new N003_MaxSubList2();
+        l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(l_msl.m_max);
+        for (int[] l_indices : l_msl.m_idxList) {
+            System.out.println(Arrays.toString(l_indices));
+        }
+
+        l_msl = new N003_MaxSubList2();
+        l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(l_msl.m_max);
+        for (int[] l_indices : l_msl.m_idxList) {
+            System.out.println(Arrays.toString(l_indices));
+        }
+
+        l_msl = new N003_MaxSubList2();
+        l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(l_msl.m_max);
+        for (int[] l_indices : l_msl.m_idxList) {
+            System.out.println(Arrays.toString(l_indices));
+        }
+
+        l_msl = new N003_MaxSubList2();
+        l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
+        System.out.println(l_msl.m_max);
+        for (int[] l_indices : l_msl.m_idxList) {
+            System.out.println(Arrays.toString(l_indices));
+        }
+    }
 
 }

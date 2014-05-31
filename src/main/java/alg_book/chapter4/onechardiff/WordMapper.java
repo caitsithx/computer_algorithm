@@ -21,9 +21,9 @@ public class WordMapper {
     }
 
     public static void updateSequences(Map<String, List<String>> mapping, String[] words) {
-        for(int i = 0; i < words.length; i ++) {
-            for(int j = i + 1; i < words.length; j ++) {
-                if(oneCharDiff(words[i], words[j])) {
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; i < words.length; j++) {
+                if (oneCharDiff(words[i], words[j])) {
                     updateSequence(mapping, words[i], words[j]);
                     updateSequence(mapping, words[j], words[i]);
                 }
@@ -32,7 +32,7 @@ public class WordMapper {
     }
 
     public static void updateSequence(Map<String, List<String>> mapping, String word, String word1) {
-        if(!mapping.containsKey(word)) {
+        if (!mapping.containsKey(word)) {
             mapping.put(word, new LinkedList<String>());
         }
 
@@ -41,10 +41,10 @@ public class WordMapper {
 
     public static boolean oneCharDiff(String word, String word1) {
         int diffCount = 0;
-        if(word.length() == word1.length()) {
-            for(int i = 0; i < word.length(); i ++) {
-                if(word.charAt(i) != word1.charAt(i)) {
-                    if(++diffCount > 1) {
+        if (word.length() == word1.length()) {
+            for (int i = 0; i < word.length(); i++) {
+                if (word.charAt(i) != word1.charAt(i)) {
+                    if (++diffCount > 1) {
                         break;
                     }
                 }

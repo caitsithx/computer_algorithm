@@ -16,60 +16,58 @@ struct ListNode
  */
 package algorithm.puzzle100;
 
+import algorithm.puzzle100.struct.IntNode;
 import org.junit.Test;
 
-import algorithm.puzzle100.struct.IntNode;
-
 /**
- * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
  * @param <T>
- * 
+ * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
  */
 
 public class N013_KElementFromTheEndOfLinkedList {
-   public IntNode find(IntNode p_list, int p_k) {
+    public IntNode find(IntNode p_list, int p_k) {
 
-	int l_length = getLength(p_list);
-	int l_kFromBeginning = (l_length - p_k - 1);
+        int l_length = getLength(p_list);
+        int l_kFromBeginning = (l_length - p_k - 1);
 
-	IntNode l_tmp = p_list;
-	for (int i = 1; i <= l_kFromBeginning; i++) {
-	   l_tmp = (IntNode) l_tmp.getNext();
-	}
+        IntNode l_tmp = p_list;
+        for (int i = 1; i <= l_kFromBeginning; i++) {
+            l_tmp = (IntNode) l_tmp.getNext();
+        }
 
-	return l_tmp;
-   }
+        return l_tmp;
+    }
 
-   /**
-    * @param p_list
-    * @return
-    */
-   private int getLength(IntNode p_list) {
-	if (p_list == null) {
-	   return 0;
-	}
+    /**
+     * @param p_list
+     * @return
+     */
+    private int getLength(IntNode p_list) {
+        if (p_list == null) {
+            return 0;
+        }
 
-	IntNode l_tmp = p_list;
-	int l_len = 0;
+        IntNode l_tmp = p_list;
+        int l_len = 0;
 
-	do {
-	   l_len++;
-	   l_tmp = (IntNode) l_tmp.getNext();
-	} while (l_tmp != null);
+        do {
+            l_len++;
+            l_tmp = (IntNode) l_tmp.getNext();
+        } while (l_tmp != null);
 
-	return l_len;
-   }
-   
-   @Test
-   public void case1() {
-	N013_KElementFromTheEndOfLinkedList l_finder = new N013_KElementFromTheEndOfLinkedList();
+        return l_len;
+    }
 
-	IntNode l_tmp = null;
-	for (int l_i = 9; l_i >= 0; l_i--) {
-	   l_tmp = new IntNode(l_i, null, l_tmp);
-	}
-	System.out.println(l_finder.find(l_tmp, 5));
-   }
+    @Test
+    public void case1() {
+        N013_KElementFromTheEndOfLinkedList l_finder = new N013_KElementFromTheEndOfLinkedList();
+
+        IntNode l_tmp = null;
+        for (int l_i = 9; l_i >= 0; l_i--) {
+            l_tmp = new IntNode(l_i, null, l_tmp);
+        }
+        System.out.println(l_finder.find(l_tmp, 5));
+    }
 
 }
 

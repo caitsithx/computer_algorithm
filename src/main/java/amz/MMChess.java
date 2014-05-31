@@ -12,7 +12,12 @@ import java.util.LinkedList;
  */
 public class MMChess {
     static BufferedReader in = new BufferedReader(new InputStreamReader(
-      System.in));
+        System.in));
+    private MMResult max = null;
+    private HashMap<String, Boolean> stepsLog = new HashMap<String, Boolean>();
+    //statistic info
+    private int playCount = 0;
+    private int loopCount = 0;
 
     public static void main(String[] args) throws IOException {
         int[] grids = null;
@@ -39,6 +44,28 @@ public class MMChess {
         System.out.println(mmChess.max);
     }
 
+    private static int[] remainCards(int[] cards, int index) {
+        int[] remainCards = new int[cards.length - 1];
+
+        if (index > 0) {
+            System.arraycopy(cards, 0, remainCards, 0, index);
+        }
+
+        if (cards.length - index - 1 > 0) {
+            System.arraycopy(cards, index + 1, remainCards, index, cards.length - index - 1);
+        }
+
+        return remainCards;
+    }
+
+    private static int remainScores(int[] grids, int i) {
+        int scores = 0;
+        for (int j = i; j < grids.length; j++) {
+            scores += grids[j];
+        }
+        return scores;
+    }
+
     protected MMResult play(int[] grids, int[] cards) {
         MMResult subResult = new MMResult();
         max = null;
@@ -46,21 +73,13 @@ public class MMChess {
         play(grids, subResult, cards);
 
         System.out.println(
-          String.format("plays:%s", playCount));
+            String.format("plays:%s", playCount));
 
         System.out.println(
-          String.format("loops:%s", loopCount));
+            String.format("loops:%s", loopCount));
 
         return max;
     }
-
-    private MMResult max = null;
-
-    private HashMap<String, Boolean> stepsLog = new HashMap<String, Boolean>();
-
-    //statistic info
-    private int playCount = 0;
-    private int loopCount = 0;
 
     protected void play(int[] grids, MMResult result, int[] cards) {
         playCount++;
@@ -116,28 +135,6 @@ public class MMChess {
         }
 
     }
-
-    private static int[] remainCards(int[] cards, int index) {
-        int[] remainCards = new int[cards.length - 1];
-
-        if (index > 0) {
-            System.arraycopy(cards, 0, remainCards, 0, index);
-        }
-
-        if (cards.length - index - 1 > 0) {
-            System.arraycopy(cards, index + 1, remainCards, index, cards.length - index - 1);
-        }
-
-        return remainCards;
-    }
-
-    private static int remainScores(int[] grids, int i) {
-        int scores = 0;
-        for (int j = i; j < grids.length; j++) {
-            scores += grids[j];
-        }
-        return scores;
-    }
 }
 
 class MMResult {
@@ -147,8 +144,8 @@ class MMResult {
 
     public String toString() {
         return String.format("pos:%1s,score:%2s", pos, score)
-          + "\n" +
-          Arrays.toString(
-            currentSteps.toArray());
+            + "\n" +
+            Arrays.toString(
+                currentSteps.toArray());
     }
 }

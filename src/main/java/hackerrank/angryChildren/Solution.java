@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Solution {
     static BufferedReader in = new BufferedReader(new InputStreamReader(
-            System.in));
+        System.in));
     static StringBuilder out = new StringBuilder();
 
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -15,8 +15,7 @@ public class Solution {
         int numKids = Integer.parseInt(in.readLine());
         int[] packets = new int[numPackets];
 
-        for(int i = 0; i < numPackets; i ++)
-        {
+        for (int i = 0; i < numPackets; i++) {
             packets[i] = Integer.parseInt(in.readLine());
         }
 
@@ -24,8 +23,8 @@ public class Solution {
 
         Arrays.sort(packets);
 
-        for(int i = 0; i < packets.length && i + numKids - 1 < packets.length; i ++) {
-            if(unfairness > (packets[i + numKids - 1] - packets[i])) {
+        for (int i = 0; i < packets.length && i + numKids - 1 < packets.length; i++) {
+            if (unfairness > (packets[i + numKids - 1] - packets[i])) {
                 unfairness = packets[i + numKids - 1] - packets[i];
             }
         }

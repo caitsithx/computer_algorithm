@@ -13,16 +13,16 @@ public class WordMapper1 {
         Map<String, List<String>> mapping = new TreeMap<>();
 
         Map<Integer, List<String>> wordsByLength = new TreeMap<>();
-        for(String word : allWords) {
+        for (String word : allWords) {
             int length = word.length();
-            if(wordsByLength.get(length) == null) {
+            if (wordsByLength.get(length) == null) {
                 wordsByLength.put(length, new ArrayList<String>(allWords.size()));
             }
 
             wordsByLength.get(length).add(word);
         }
 
-        for(Map.Entry<Integer, List<String>> entry : wordsByLength.entrySet()) {
+        for (Map.Entry<Integer, List<String>> entry : wordsByLength.entrySet()) {
             String[] words = new String[entry.getValue().size()];
             entry.getValue().toArray(words);
 

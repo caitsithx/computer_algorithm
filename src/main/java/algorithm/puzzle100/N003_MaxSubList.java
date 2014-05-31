@@ -21,48 +21,47 @@ import org.junit.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N003_MaxSubList {
-   
-   public int getSubList(int[] p_input) {
-	//TODO CHECK INPUT
-	
-	int l_max = p_input[0];
-	int l_currentSum = p_input[0];
-	
-	for (int l_i = 1; l_i < p_input.length; l_i++) {
-	   l_currentSum += p_input[l_i];
-	   
-	   if (l_currentSum > l_max) {
-		l_max = l_currentSum;
-	   }
-	   
-	   if(l_currentSum < 0) {
-		l_currentSum = 0;
-	   } 
-	}
-	
-	return l_max;
-   }
 
-   @Test
-   public void case1() {
-	N003_MaxSubList l_msl = new N003_MaxSubList();
-	int l_max = l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
-	System.out.println(l_max);
-	
-	l_max = l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(l_max);
-	
-	l_max = l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -3, -5});
-	System.out.println(l_max);
-	
-	l_max = l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
-	System.out.println(l_max);
-	
-	l_max = l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
-	System.out.println(l_max);
-   }
+    public int getSubList(int[] p_input) {
+        //TODO CHECK INPUT
+
+        int l_max = p_input[0];
+        int l_currentSum = p_input[0];
+
+        for (int l_i = 1; l_i < p_input.length; l_i++) {
+            l_currentSum += p_input[l_i];
+
+            if (l_currentSum > l_max) {
+                l_max = l_currentSum;
+            }
+
+            if (l_currentSum < 0) {
+                l_currentSum = 0;
+            }
+        }
+
+        return l_max;
+    }
+
+    @Test
+    public void case1() {
+        N003_MaxSubList l_msl = new N003_MaxSubList();
+        int l_max = l_msl.getSubList(new int[] {1, -2, 3, 10, -4, 7, 2, -5});
+        System.out.println(l_max);
+
+        l_max = l_msl.getSubList(new int[] {1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(l_max);
+
+        l_max = l_msl.getSubList(new int[] {-100, -2, -3, -10, -4, -7, -3, -5});
+        System.out.println(l_max);
+
+        l_max = l_msl.getSubList(new int[] {-1, -2, -3, -10, -4, -7, -2, -5});
+        System.out.println(l_max);
+
+        l_max = l_msl.getSubList(new int[] {100, 2, 3, 10, 4, 7, 2, 5});
+        System.out.println(l_max);
+    }
 
 }

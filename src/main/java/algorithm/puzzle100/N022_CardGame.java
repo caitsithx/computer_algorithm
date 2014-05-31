@@ -68,51 +68,50 @@
  */
 package algorithm.puzzle100;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.junit.Test;
-
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- * 
  */
 public class N022_CardGame {
-   private int[] m_c42 = { 20, 11, 02 };
+    private int[] m_c42 = {20, 11, 02};
 
-   private boolean isGuessible1(int p_p1, int p_p2) {
-	return (p_p1 == 2 && p_p2 == 2) || (p_p1 == 20 && p_p2 == 20);
-   }
+    private boolean isGuessible1(int p_p1, int p_p2) {
+        return (p_p1 == 2 && p_p2 == 2) || (p_p1 == 20 && p_p2 == 20);
+    }
 
-   private boolean isGuessible2(int p_p1, int p_p2) {
-	int l_nonGuessible = 0;
-	for (int l_i = 0; l_i < m_c42.length; l_i++) {
-	   boolean l_guessible2 = isGuessible1(p_p1, m_c42[l_i])
-		   || isGuessible1(p_p2, m_c42[l_i]);
-	   if (!l_guessible2) {
-		l_nonGuessible++;
-	   }
-	}
-	return l_nonGuessible == 1;
-   }
+    private boolean isGuessible2(int p_p1, int p_p2) {
+        int l_nonGuessible = 0;
+        for (int l_i = 0; l_i < m_c42.length; l_i++) {
+            boolean l_guessible2 = isGuessible1(p_p1, m_c42[l_i])
+                || isGuessible1(p_p2, m_c42[l_i]);
+            if (!l_guessible2) {
+                l_nonGuessible++;
+            }
+        }
+        return l_nonGuessible == 1;
+    }
 
-   @Test
-   public void guess() {
-	ArrayList<int[]> l_candidateList = new ArrayList<>();
+    @Test
+    public void guess() {
+        ArrayList<int[]> l_candidateList = new ArrayList<>();
 
-	for (int l_i = 0; l_i < m_c42.length; l_i++) {
-	   for (int l_j = 0; l_j < m_c42.length; l_j++) {
-		if (!isGuessible1(m_c42[l_i], m_c42[l_j])) {
-		   l_candidateList.add(new int[] { m_c42[l_i], m_c42[l_j] });
-		}
-	   }
-	}
-	int[][] l_candidates = new int[l_candidateList.size()][];
-	l_candidateList.toArray(l_candidates);
+        for (int l_i = 0; l_i < m_c42.length; l_i++) {
+            for (int l_j = 0; l_j < m_c42.length; l_j++) {
+                if (!isGuessible1(m_c42[l_i], m_c42[l_j])) {
+                    l_candidateList.add(new int[] {m_c42[l_i], m_c42[l_j]});
+                }
+            }
+        }
+        int[][] l_candidates = new int[l_candidateList.size()][];
+        l_candidateList.toArray(l_candidates);
 
-	for (int l_i = 0; l_i < l_candidates.length; l_i++) {
-	   System.out.println(Arrays.toString(l_candidates[l_i]) + " guessible: "
-		   + isGuessible2(l_candidates[l_i][0], l_candidates[l_i][1]));
-	}
-   }
+        for (int l_i = 0; l_i < l_candidates.length; l_i++) {
+            System.out.println(Arrays.toString(l_candidates[l_i]) + " guessible: "
+                + isGuessible2(l_candidates[l_i][0], l_candidates[l_i][1]));
+        }
+    }
 }

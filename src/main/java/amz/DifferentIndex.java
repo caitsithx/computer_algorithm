@@ -11,8 +11,8 @@ import java.util.Arrays;
  */
 public class DifferentIndex {
     static BufferedReader in = new BufferedReader(new InputStreamReader(
-            System.in));
-
+        System.in));
+    protected ArrayList<ActionList> min = new ArrayList<ActionList>();
 
     public static void main(String[] args) throws IOException {
         String[] phrase1 = in.readLine().split("\\s");
@@ -24,26 +24,24 @@ public class DifferentIndex {
         System.out.print(di.min.get(0).actionCount);
     }
 
-    protected ArrayList<ActionList> min = new ArrayList<ActionList>();
-
-    public void diffIndex(String[] phrase1, String[] phrase2){
+    public void diffIndex(String[] phrase1, String[] phrase2) {
         diffIndex(phrase1, phrase2, new ActionList());
         diffIndex(phrase2, phrase1, new ActionList());
 
-        for(ActionList actionList : min) {
+        for (ActionList actionList : min) {
             System.out.println(Arrays.toString(actionList.innerList.toArray()));
         }
     }
 
     private void diffIndex(String[] phrase1, String[] phrase2, ActionList actionList) {
         //phrase1 is empty
-        if(phrase1.length == 0) {
+        if (phrase1.length == 0) {
             ActionList finalActionList = null;
             //still remaining words in phrase2, insert them
-            if(phrase2.length > 0) {
+            if (phrase2.length > 0) {
                 finalActionList = new ActionList();
                 finalActionList.addAll(actionList);
-                for(int i = 0; i < phrase2.length; i ++) {
+                for (int i = 0; i < phrase2.length; i++) {
                     finalActionList.add("i");
                 }
             }
@@ -54,24 +52,24 @@ public class DifferentIndex {
             }
 
             //we are done. let's count the minimum index so far.
-            if(min.size() == 0) {
+            if (min.size() == 0) {
                 min.add(finalActionList);
             } else {
-                if(min.get(0).actionCount > finalActionList.actionCount) {
+                if (min.get(0).actionCount > finalActionList.actionCount) {
                     min.clear();
                     min.add(finalActionList);
-                } else if(min.get(0).actionCount == finalActionList.actionCount) {
+                } else if (min.get(0).actionCount == finalActionList.actionCount) {
                     min.add(finalActionList);
                 }
             }
             return;
         }
         //failed
-        else if(phrase2.length == 0) {
+        else if (phrase2.length == 0) {
             return;
         }
 
-        if(phrase1[0].equals(phrase2[0])) {
+        if (phrase1[0].equals(phrase2[0])) {
             String[] phrase11 = new String[phrase1.length - 1];
             System.arraycopy(phrase1, 1, phrase11, 0, phrase11.length);
             String[] phrase21 = new String[phrase2.length - 1];
@@ -120,8 +118,8 @@ public class DifferentIndex {
 
         public void add(String action) {
             innerList.add(action);
-            if(!action.equals("-")) {
-                actionCount ++;
+            if (!action.equals("-")) {
+                actionCount++;
             }
         }
 
