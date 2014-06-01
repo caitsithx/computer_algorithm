@@ -17,74 +17,74 @@
  */
 package algorithm.puzzle100;
 
-import junit.framework.Assert;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
- *
  */
 public class N030_GoogleCountOnebyRange {
-   protected final static int[] DICT = new int[] {0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-   
-   /**
-    * 9: DICT[9]
-    * 99: countOneBy9(9) * 10 + DICT[9] * 10^1
-    * 999: countOneBy9(99) * 10 + DICT[9] * 10^2
-    * ...
-    * @param p_NumOf9 
-    * @return 
-    */
-   public long countOneBy9(int p_NumOf9){
-	if(p_NumOf9 == 0) {
-	   return 0;
-	}
-	
-	int l_count = DICT[9];
-	int l_yuXiang = DICT[9];
-	for (int l_i = 1; l_i < p_NumOf9; l_i++) {
-	   l_yuXiang *= 10;
-	   l_count = l_count * 10 + l_yuXiang;
-	}
-	
-	return l_count;
-   }
-   
-   /**
-    *   x9: (x+1) * countOneBy9(  9) + DICT[x] * 10^1
-    *  x99: (x+1) * countOneBy9( 99) + DICT[x] * 10^2
-    * x999: (x+1) * countOneBy9(999) + DICT[x] * 10^3
-    * 
-    * @param p_x
-    * @param p_numOfFollowing9
-    * @return
-    */
-   public long countOneByX9(int p_x, int p_numOfFollowing9){
-	if(p_x == 0 && p_numOfFollowing9 == 0) {
-	   return 0;
-	}
-	
-	long l_count = (p_x + 1) * countOneBy9(p_numOfFollowing9);
-	if(p_x != 0) {
-	   l_count += DICT[p_x] * ((long)Math.pow(10, p_numOfFollowing9));
-	}
-	
-	return l_count;
-   }
-   
-   @Test
-   public void case1_N030_GoogleCountOnebyRange() {
-	Assert.assertEquals(1, (countOneBy9(1))); //9
-	Assert.assertEquals(20, (countOneBy9(2))); //99
-	Assert.assertEquals(300, (countOneBy9(3))); //999
-   }
-   
-   @Test
-   public void case2_N030_GoogleCountOnebyRange() {
-	Assert.assertEquals(12, (countOneByX9(1, 1))); //19
-	Assert.assertEquals(160, (countOneByX9(2, 2))); //299
-	Assert.assertEquals(280, (countOneByX9(8, 2))); //899
-	Assert.assertEquals(countOneBy9(3), (countOneByX9(9, 2))); //999
-   }
+    protected final static int[] DICT = new int[] {0, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+
+    /**
+     * 9: DICT[9]
+     * 99: countOneBy9(9) * 10 + DICT[9] * 10^1
+     * 999: countOneBy9(99) * 10 + DICT[9] * 10^2
+     * ...
+     *
+     * @param p_NumOf9
+     * @return
+     */
+    public long countOneBy9(int p_NumOf9) {
+        if (p_NumOf9 == 0) {
+            return 0;
+        }
+
+        int l_count = DICT[9];
+        int l_yuXiang = DICT[9];
+        for (int l_i = 1; l_i < p_NumOf9; l_i++) {
+            l_yuXiang *= 10;
+            l_count = l_count * 10 + l_yuXiang;
+        }
+
+        return l_count;
+    }
+
+    /**
+     * x9: (x+1) * countOneBy9(  9) + DICT[x] * 10^1
+     * x99: (x+1) * countOneBy9( 99) + DICT[x] * 10^2
+     * x999: (x+1) * countOneBy9(999) + DICT[x] * 10^3
+     *
+     * @param p_x
+     * @param p_numOfFollowing9
+     * @return
+     */
+    public long countOneByX9(int p_x, int p_numOfFollowing9) {
+        if (p_x == 0 && p_numOfFollowing9 == 0) {
+            return 0;
+        }
+
+        long l_count = (p_x + 1) * countOneBy9(p_numOfFollowing9);
+        if (p_x != 0) {
+            l_count += DICT[p_x] * ((long) Math.pow(10, p_numOfFollowing9));
+        }
+
+        return l_count;
+    }
+
+    @Test
+    public void case1_N030_GoogleCountOnebyRange() {
+        Assert.assertEquals(1, (countOneBy9(1))); //9
+        Assert.assertEquals(20, (countOneBy9(2))); //99
+        Assert.assertEquals(300, (countOneBy9(3))); //999
+    }
+
+    @Test
+    public void case2_N030_GoogleCountOnebyRange() {
+        Assert.assertEquals(12, (countOneByX9(1, 1))); //19
+        Assert.assertEquals(160, (countOneByX9(2, 2))); //299
+        Assert.assertEquals(280, (countOneByX9(8, 2))); //899
+        Assert.assertEquals(countOneBy9(3), (countOneByX9(9, 2))); //999
+    }
 }

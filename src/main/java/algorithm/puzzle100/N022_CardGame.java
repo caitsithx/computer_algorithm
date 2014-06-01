@@ -77,17 +77,17 @@ import java.util.Arrays;
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
  */
 public class N022_CardGame {
-    private int[] m_c42 = {20, 11, 02};
+    public final static int[] POSSIBLE_SCORES = {20, 11, 02};
 
-    private boolean isGuessible1(int p_p1, int p_p2) {
-        return (p_p1 == 2 && p_p2 == 2) || (p_p1 == 20 && p_p2 == 20);
+    private boolean thirdGuyCanGuess(int score1, int score2) {
+        return (score1 == 2 && score2 == 2) || (score1 == 20 && score2 == 20);
     }
 
     private boolean isGuessible2(int p_p1, int p_p2) {
         int l_nonGuessible = 0;
-        for (int l_i = 0; l_i < m_c42.length; l_i++) {
-            boolean l_guessible2 = isGuessible1(p_p1, m_c42[l_i])
-                || isGuessible1(p_p2, m_c42[l_i]);
+        for (int l_i = 0; l_i < POSSIBLE_SCORES.length; l_i++) {
+            boolean l_guessible2 = thirdGuyCanGuess(p_p1, POSSIBLE_SCORES[l_i])
+                || thirdGuyCanGuess(p_p2, POSSIBLE_SCORES[l_i]);
             if (!l_guessible2) {
                 l_nonGuessible++;
             }
@@ -96,13 +96,79 @@ public class N022_CardGame {
     }
 
     @Test
-    public void guess() {
+    public void straightForwardGuess() {
+        ArrayList<int[]> bc_Scores = new ArrayList<>();
+
+        for (int score1 : POSSIBLE_SCORES) {
+            for (int score2 : POSSIBLE_SCORES) {
+                //A tries to guess from BC.
+                //only keep the scores that A can't guess.
+                if (!thirdGuyCanGuess(score1, score2)) {
+                    bc_Scores.add(new int[] {score1, score2});
+                }
+            }
+        }
+
+        // find all ABC combinations that all can't guess.
+        // but exceptions! for some B and C combinations, A has only one possibility!
+        // e.g. [A, 20, 2], A can only be 11, otherwise, B or C should be able to guess.
+        // which means, if A see 20, 2, at same time B and C says can't guess. A knows himself is 11.
+        //so we need the BC scores, that A has to be one value.
+        ArrayList<int[]> abc_Scores = new ArrayList<>();
+        for (int[] bc_score : bc_Scores) {
+            int a_scoreCount = 0;
+            int A_scoreCandidate = 0;
+
+            System.out.println("test bc: " + Arrays.toString(bc_score));
+            for (int a_score : POSSIBLE_SCORES) {
+                if (isVaild(a_score, bc_score[0], bc_score[1])) {
+                    // B try to guess from AC.
+                    // only keep the scores that B can't guess.
+                    if (!thirdGuyCanGuess(a_score, bc_score[1])) {
+                        // C try to guess from AB.
+                        // only keep the scores that C can't guess.
+                        if (!thirdGuyCanGuess(a_score, bc_score[0])) {
+                            a_scoreCount++;
+                            A_scoreCandidate = a_score;
+                            System.out.println("possible abc that all can't guess at first round: " + a_score + "," + Arrays.toString(bc_score));
+                        }
+                    }
+                }
+            }
+
+            if (a_scoreCount == 1) {
+                abc_Scores.add(new int[] {A_scoreCandidate, bc_score[0], bc_score[1]});
+            } else {
+                System.out.println("not good, in this case, A can't guess at the end.");
+            }
+        }
+
+        System.out.println("finally:");
+        for (int[] abc_score : abc_Scores) {
+            System.out.println(Arrays.toString(abc_score));
+        }
+    }
+
+    private boolean isVaild(int a_score, int b_score, int c_sore) {
+        int sum = a_score + b_score + c_sore;
+
+        if (sum / 10 > 4)
+            return false;
+
+        if (sum % 10 > 4)
+            return false;
+
+        return true;
+    }
+
+    @Test
+    public void guess1() {
         ArrayList<int[]> l_candidateList = new ArrayList<>();
 
-        for (int l_i = 0; l_i < m_c42.length; l_i++) {
-            for (int l_j = 0; l_j < m_c42.length; l_j++) {
-                if (!isGuessible1(m_c42[l_i], m_c42[l_j])) {
-                    l_candidateList.add(new int[] {m_c42[l_i], m_c42[l_j]});
+        for (int l_i = 0; l_i < POSSIBLE_SCORES.length; l_i++) {
+            for (int l_j = 0; l_j < POSSIBLE_SCORES.length; l_j++) {
+                if (!thirdGuyCanGuess(POSSIBLE_SCORES[l_i], POSSIBLE_SCORES[l_j])) {
+                    l_candidateList.add(new int[] {POSSIBLE_SCORES[l_i], POSSIBLE_SCORES[l_j]});
                 }
             }
         }

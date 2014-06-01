@@ -45,7 +45,7 @@ package algorithm.puzzle100;///*
 //   }
 //
 //   @Test
-//   public void guess() {
+//   public void straightForwardGuess() {
 //	for (int l_i = 0; l_i < UNGUESSIBLE.length; l_i++) {
 //	   System.out.println(Arrays.toString(UNGUESSIBLE[l_i]) + " guessible: " + 
 //		   isGuessible2(UNGUESSIBLE[l_i][0], UNGUESSIBLE[l_i][1]));
