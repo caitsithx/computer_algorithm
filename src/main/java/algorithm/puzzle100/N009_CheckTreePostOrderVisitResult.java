@@ -22,7 +22,8 @@
  */
 package algorithm.puzzle100;
 
-import algorithm.puzzle100.struct.TreeNode;
+import adt.TreeNode;
+import algorithm.puzzle100.struct.IntTreeNode;
 import org.junit.Test;
 
 /**
@@ -30,8 +31,8 @@ import org.junit.Test;
  */
 public class N009_CheckTreePostOrderVisitResult {
 
-    public TreeNode convert(int[] p_inputs, int p_start, int p_end) {
-        TreeNode l_root = new TreeNode(p_inputs[p_end]);
+    public IntTreeNode convert(int[] p_inputs, int p_start, int p_end) {
+        IntTreeNode l_root = new IntTreeNode(p_inputs[p_end]);
 
         if (p_start == p_end) {
             return l_root;
@@ -45,7 +46,7 @@ public class N009_CheckTreePostOrderVisitResult {
         }
 
         if (p_start <= l_splitter) {
-            TreeNode l_leftSub = convert(p_inputs, p_start, l_splitter);
+            IntTreeNode l_leftSub = convert(p_inputs, p_start, l_splitter);
 
             if (l_leftSub.getValue() >= l_root.getValue()) {
                 throw new IllegalArgumentException();
@@ -55,7 +56,7 @@ public class N009_CheckTreePostOrderVisitResult {
         }
 
         if (l_splitter <= p_end - 1) {
-            TreeNode l_rightSub = convert(p_inputs, l_splitter + 1, p_end - 1);
+            IntTreeNode l_rightSub = convert(p_inputs, l_splitter + 1, p_end - 1);
 
             if (l_rightSub.getValue() <= l_root.getValue()) {
                 throw new IllegalArgumentException();

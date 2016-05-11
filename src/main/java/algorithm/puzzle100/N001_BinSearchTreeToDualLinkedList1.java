@@ -31,7 +31,7 @@
  ************************************************************/
 package algorithm.puzzle100;
 
-import algorithm.puzzle100.struct.TreeNode;
+import adt.TreeNode;
 import org.junit.Test;
 
 /**

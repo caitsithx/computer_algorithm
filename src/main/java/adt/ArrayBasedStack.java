@@ -4,7 +4,9 @@
  * $Revison$
  * $author$
  */
-package algorithm.puzzle100.struct;
+package adt;
+
+import algorithm.puzzle100.struct.IStack;
 
 import java.util.Arrays;
 
@@ -55,5 +57,9 @@ public class ArrayBasedStack<T> implements IStack<T> {
     @Override
     public String toString() {
         return Arrays.toString(m_internal);
+    }
+
+    public T top() {
+        return m_internal[m_count - 1];
     }
 }

@@ -21,7 +21,7 @@ package algorithm.puzzle100;
 import org.junit.Assert;
 import org.junit.Test;
 
-import algorithm.puzzle100.struct.ArrayBasedStack;
+import adt.ArrayBasedStack;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>

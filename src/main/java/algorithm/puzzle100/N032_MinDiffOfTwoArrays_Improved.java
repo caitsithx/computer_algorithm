@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
-import algorithm.puzzle100.struct.ArrayBasedStack;
+import adt.ArrayBasedStack;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>

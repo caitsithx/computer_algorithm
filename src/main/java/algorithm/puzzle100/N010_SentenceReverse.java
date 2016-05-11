@@ -15,7 +15,7 @@
 
 package algorithm.puzzle100;
 
-import algorithm.puzzle100.struct.ArrayBasedStack;
+import adt.ArrayBasedStack;
 import org.junit.Test;
 
 import java.io.IOException;

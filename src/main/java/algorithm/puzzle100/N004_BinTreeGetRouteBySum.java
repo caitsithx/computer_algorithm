@@ -30,8 +30,8 @@ BinaryTreeNode *m_pRight; // right child of node
  */
 package algorithm.puzzle100;
 
-import algorithm.puzzle100.struct.ArrayBasedStack;
-import algorithm.puzzle100.struct.TreeNode;
+import adt.ArrayBasedStack;
+import algorithm.puzzle100.struct.IntTreeNode;
 import org.junit.Test;
 
 /**
@@ -41,7 +41,7 @@ public class N004_BinTreeGetRouteBySum {
     ArrayBasedStack<Integer> m_routeStack = new ArrayBasedStack<Integer>(1000);
 
 
-    public void getRoutes(TreeNode p_root, int p_currentSum) {
+    public void getRoutes(IntTreeNode p_root, int p_currentSum) {
         //	TreeNode l_cloned = new TreeNode(p_root.getValue());
 
         int l_sumForSubTree = p_currentSum - p_root.getValue();
@@ -57,14 +57,14 @@ public class N004_BinTreeGetRouteBySum {
             if (l_sumForSubTree > p_root.getValue()) {
                 if (p_root.getRight() != null) {
                     m_routeStack.push(p_root.getValue());
-                    getRoutes(p_root.getRight(), l_sumForSubTree);
+                    getRoutes((IntTreeNode)p_root.getRight(), l_sumForSubTree);
                     m_routeStack.pop();
                 }
             }
 
             if (p_root.getLeft() != null) {
                 m_routeStack.push(p_root.getValue());
-                getRoutes(p_root.getLeft(), l_sumForSubTree);
+                getRoutes((IntTreeNode)p_root.getLeft(), l_sumForSubTree);
                 m_routeStack.pop();
             }
         } /*else if(l_sumForSubTree < 0) {
@@ -74,14 +74,14 @@ public class N004_BinTreeGetRouteBySum {
 
     @Test
     public void case1() {
-        TreeNode l_4 = new TreeNode(4);
-        TreeNode l_7 = new TreeNode(7);
-        TreeNode l_5 = new TreeNode(5, l_4, l_7);
+        IntTreeNode l_4 = new IntTreeNode(4);
+        IntTreeNode l_7 = new IntTreeNode(7);
+        IntTreeNode l_5 = new IntTreeNode(5, l_4, l_7);
 
 
-        TreeNode l_12 = new TreeNode(12);
+        IntTreeNode l_12 = new IntTreeNode(12);
 
-        TreeNode l_10 = new TreeNode(10, l_5, l_12);
+        IntTreeNode l_10 = new IntTreeNode(10, l_5, l_12);
 
         N004_BinTreeGetRouteBySum l_router = new N004_BinTreeGetRouteBySum();
         l_router.getRoutes(l_10, 22);

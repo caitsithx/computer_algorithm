@@ -1,16 +1,16 @@
-package algorithm.puzzle100.struct;
+package adt;
 
-public class TreeNode {
+public class TreeNode<T> {
     private TreeNode m_left;
     private TreeNode m_right;
-    private int m_value;
+    private T m_value;
 
     /**
      * @param p_value
      * @param p_left
      * @param p_right
      */
-    public TreeNode(int p_value, TreeNode p_left, TreeNode p_right) {
+    public TreeNode(T p_value, TreeNode p_left, TreeNode p_right) {
         super();
         this.m_value = p_value;
         this.m_left = p_left;
@@ -20,7 +20,7 @@ public class TreeNode {
     /**
      * @param p_value
      */
-    public TreeNode(int p_value) {
+    public TreeNode(T p_value) {
         super();
         this.m_value = p_value;
     }
@@ -56,14 +56,14 @@ public class TreeNode {
     /**
      * @return the value
      */
-    public int getValue() {
+    public T getValue() {
         return this.m_value;
     }
 
     /**
      * @param p_value the value to set
      */
-    public void setValue(int p_value) {
+    public void setValue(T p_value) {
         this.m_value = p_value;
     }
 

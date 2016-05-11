@@ -16,7 +16,7 @@
  */
 package algorithm.puzzle100;
 
-import algorithm.puzzle100.struct.ArrayBasedStack;
+import adt.ArrayBasedStack;
 import algorithm.puzzle100.struct.Node;
 import org.junit.Test;
 
