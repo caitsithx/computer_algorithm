@@ -11,7 +11,9 @@ class DiffIndexNew {
     private static List<String> min = null;
     static int minCount = 0;
 
+    static int perfCount = 0;
     static void calculate(String[] stra1, String[] stra2, List<String> actionList) {
+        perfCount ++;
         if (stra1.length == 0) {
             append(actionList, stra2.length, "i");
             finish(actionList);
