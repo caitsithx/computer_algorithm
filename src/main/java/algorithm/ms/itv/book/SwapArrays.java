@@ -1,5 +1,7 @@
 package algorithm.ms.itv.book;
 
+import java.util.Arrays;
+
 /**
  * (原题出自微软公司面试题)问题如下：
  * <p/>
@@ -13,29 +15,48 @@ package algorithm.ms.itv.book;
  */
 public class SwapArrays {
 
-    public void swap(Element[] collection1, Element[] collection2, int sum1, int sum2) {
-        for (int i = 0; i < collection1.length; i++) {
-            for (int j = 0; j < collection2.length; j++) {
-                int val1 = collection1[i].value;
-                int val2 = collection2[j].value;
+    public void swap(int[] a, int[] b) {
+        int[] v1, v2;
+        int diff = getDiff(a, b);
+        if(diff > 0) {
+            v1 = a;
+            v2 = b;
+        }else if(diff == 0) {
+            System.out.println(Arrays.toString(a));
+            System.out.println(Arrays.toString(b));
+            return;
+        } else {
+            diff = - diff;
+            v1 = b;
+            v2 = a;
+        }
 
-                int oldDiff = sum1 - sum1;
-                int newDiff = 2 * val2 - 2 * val1;
-
-                if (Math.abs(oldDiff) > Math.abs(newDiff)) {
-
+        for(int i = 0; i < v1.length; i ++) {
+            for(int j = 0; j < v2.length; j ++) {
+                int delta = v1[i] - v2[j];
+                if(delta > 0 && delta < diff/2) {
+                    int tmp = v1[i];
+                    v1[i] = v2[j];
+                    v2[j] = tmp;
+                    diff = 2 * delta;
+                }else if(delta == diff/2) {
+                    System.out.println(Arrays.toString(a));
+                    System.out.println(Arrays.toString(b));
+                    return;
+                } else if(delta > diff/2 && delta < diff) {
+                    int tmp = v1[i];
+                    v1[i] = v2[j];
+                    v2[j] = tmp;
+                    diff = 2 * (diff - delta);
+                    v1 = v2;
+                    v2 = v1;
                 }
             }
         }
     }
 
-    class Element {
-        int value = 0;
-        boolean swapped = false;
-    }
-
-    class MyCollection {
-        Element[] array;
-        int sum;
+    private int getDiff(int[] a, int[] b) {
+        return Arrays.stream(a).parallel().reduce(0, Integer::sum)
+                - Arrays.stream(b).parallel().reduce(0, Integer::sum);
     }
 }

@@ -36,6 +36,6 @@ public class MaxSubArrayTest {
     @Test
     public void testMethod() {
         MaxSubArray msa = new MaxSubArray();
-        Assert.assertEquals(max, msa.getMaxSubArray(array));
+        Assert.assertEquals(max, msa.maxSubArray(array));
     }
 }
