@@ -1,9 +1,8 @@
-package leetcode.sum4;
+package leetcode.sum.sum4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class SolutionTop {
    public List<List<Integer>> fourSum(int[] nums, int target) {
