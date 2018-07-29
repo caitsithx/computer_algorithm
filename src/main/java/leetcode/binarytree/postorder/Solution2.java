@@ -1,4 +1,4 @@
-package leetcode.binarytree.inorder;
+package leetcode.binarytree.postorder;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +17,7 @@ import leetcode.binarytree.TreeNode;
  * }
  */
 class Solution2 {
-   public List<Integer> inorderTraversal(TreeNode root) {
+   public List<Integer> postorderTraversal(TreeNode root) {
       if (root == null) {
          return Collections.emptyList();
       }
@@ -25,6 +25,7 @@ class Solution2 {
       List<Integer> result = new ArrayList<>();
       Stack<TreeNode> history = new Stack<>();
       TreeNode current = root;
+      TreeNode pre = null;
 
       while (current != null || !history.isEmpty()) {
          while (current != null) {
@@ -32,9 +33,15 @@ class Solution2 {
             current = current.left;
          }
 
-         current = history.pop();
-         result.add(current.val);
-         current = current.right;
+         current = history.peek();
+         if(current.right != null && pre != current.right) {
+            current = current.right;
+         } else {
+            history.pop();
+            result.add(current.val);
+            pre= current;
+            current = null;
+         }
       }
       return result;
    }
