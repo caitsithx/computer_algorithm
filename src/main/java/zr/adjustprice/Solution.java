@@ -1,4 +1,4 @@
-package getpy.adjustprice;
+package zr.adjustprice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
