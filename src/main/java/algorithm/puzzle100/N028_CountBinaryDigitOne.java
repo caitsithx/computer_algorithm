@@ -15,8 +15,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -41,18 +41,18 @@ public class N028_CountBinaryDigitOne {
 
    @Test
    public void case1() {
-	Assert.assertEquals(1, count(-1));
-	Assert.assertEquals(1, count(1));
-	Assert.assertEquals(1, count(2));
-	Assert.assertEquals(1, count(4));
-	Assert.assertEquals(1, count(8));
+	Assertions.assertEquals(1, count(-1));
+	Assertions.assertEquals(1, count(1));
+	Assertions.assertEquals(1, count(2));
+	Assertions.assertEquals(1, count(4));
+	Assertions.assertEquals(1, count(8));
    }
    
    @Test
    public void case2() {
-	Assert.assertEquals(2, count(3));
-	Assert.assertEquals(2, count(6));
-	Assert.assertEquals(2, count(12));
-	Assert.assertEquals(2, count(24));
+	Assertions.assertEquals(2, count(3));
+	Assertions.assertEquals(2, count(6));
+	Assertions.assertEquals(2, count(12));
+	Assertions.assertEquals(2, count(24));
    }
 }

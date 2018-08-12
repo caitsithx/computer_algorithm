@@ -14,8 +14,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
@@ -79,14 +79,14 @@ public class N027_StairJumper {
 
     @Test
     public void case1() {
-        Assert.assertEquals(BigDecimal.valueOf(1), list(1));
-        Assert.assertEquals(BigDecimal.valueOf(2), list(2));
-        Assert.assertEquals(BigDecimal.valueOf(3), list(3));
-        Assert.assertEquals(BigDecimal.valueOf(5), list(4));
-        Assert.assertEquals(BigDecimal.valueOf(8), list(5));
-        Assert.assertEquals(BigDecimal.valueOf(13), list(6));
-        Assert.assertEquals(BigDecimal.valueOf(21), list(7));
-        Assert.assertEquals(BigDecimal.valueOf(34), list(8));
-        Assert.assertEquals(BigDecimal.valueOf(55), list(9));
+        Assertions.assertEquals(BigDecimal.valueOf(1), list(1));
+        Assertions.assertEquals(BigDecimal.valueOf(2), list(2));
+        Assertions.assertEquals(BigDecimal.valueOf(3), list(3));
+        Assertions.assertEquals(BigDecimal.valueOf(5), list(4));
+        Assertions.assertEquals(BigDecimal.valueOf(8), list(5));
+        Assertions.assertEquals(BigDecimal.valueOf(13), list(6));
+        Assertions.assertEquals(BigDecimal.valueOf(21), list(7));
+        Assertions.assertEquals(BigDecimal.valueOf(34), list(8));
+        Assertions.assertEquals(BigDecimal.valueOf(55), list(9));
     }
 }

@@ -32,7 +32,7 @@
 package algorithm.puzzle100;
 
 import adt.TreeNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 /**

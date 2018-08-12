@@ -6,8 +6,8 @@
  */
 package algorithm.util;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -52,18 +52,18 @@ public class MathUtil {
 
     @Test
     public void case1() {
-        Assert.assertEquals(4, MathUtil.getDigit(1234, 10, 1));
-        Assert.assertEquals(3, MathUtil.getDigit(1234, 10, 2));
-        Assert.assertEquals(2, MathUtil.getDigit(1234, 10, 3));
-        Assert.assertEquals(1, MathUtil.getDigit(1234, 10, 4));
-        Assert.assertEquals(0, MathUtil.getDigit(1234, 10, 5));
-        Assert.assertEquals(0, MathUtil.getDigit(1234, 10, 6));
+        Assertions.assertEquals(4, MathUtil.getDigit(1234, 10, 1));
+        Assertions.assertEquals(3, MathUtil.getDigit(1234, 10, 2));
+        Assertions.assertEquals(2, MathUtil.getDigit(1234, 10, 3));
+        Assertions.assertEquals(1, MathUtil.getDigit(1234, 10, 4));
+        Assertions.assertEquals(0, MathUtil.getDigit(1234, 10, 5));
+        Assertions.assertEquals(0, MathUtil.getDigit(1234, 10, 6));
 
-        Assert.assertEquals(1, MathUtil.getDigit(0x11, 2, 1));
-        Assert.assertEquals(0, MathUtil.getDigit(0x11, 2, 2));
-        Assert.assertEquals(0, MathUtil.getDigit(0x11, 2, 3));
-        Assert.assertEquals(0, MathUtil.getDigit(0x11, 2, 4));
-        Assert.assertEquals(1, MathUtil.getDigit(0x11, 2, 5));
-        Assert.assertEquals(0, MathUtil.getDigit(0x11, 2, 6));
+        Assertions.assertEquals(1, MathUtil.getDigit(0x11, 2, 1));
+        Assertions.assertEquals(0, MathUtil.getDigit(0x11, 2, 2));
+        Assertions.assertEquals(0, MathUtil.getDigit(0x11, 2, 3));
+        Assertions.assertEquals(0, MathUtil.getDigit(0x11, 2, 4));
+        Assertions.assertEquals(1, MathUtil.getDigit(0x11, 2, 5));
+        Assertions.assertEquals(0, MathUtil.getDigit(0x11, 2, 6));
     }
 }

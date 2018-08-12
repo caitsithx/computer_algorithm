@@ -6,8 +6,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -40,7 +40,7 @@ public class N026_LeftRotate3Swaps {
 	char[] l_inputs = new char[]{'a', 'b', 'c', 'd', '1', '2', '3', '4'};
 	rotate(l_inputs, 4);
 	
-	Assert.assertArrayEquals(new char[]{'1', '2', '3', '4', 'a', 'b', 'c', 'd'}, l_inputs);
+	Assertions.assertArrayEquals(new char[]{'1', '2', '3', '4', 'a', 'b', 'c', 'd'}, l_inputs);
    }
    
    @Test
@@ -48,7 +48,7 @@ public class N026_LeftRotate3Swaps {
 	char[] l_inputs = new char[]{'a', 'b', 'c', 'd', '1', '2', '3', '4'};
 	rotate(l_inputs, 3);
 	
-	Assert.assertArrayEquals(new char[]{'d', '1', '2', '3', '4', 'a', 'b', 'c'}, 
+	Assertions.assertArrayEquals(new char[]{'d', '1', '2', '3', '4', 'a', 'b', 'c'},
 		l_inputs);
    }
    
@@ -57,7 +57,7 @@ public class N026_LeftRotate3Swaps {
 	char[] l_inputs = new char[]{'a', 'b', 'c', 'd', '1', '2', '3', '4'};
 	rotate(l_inputs, 13);
 	
-	Assert.assertArrayEquals(new char[]{'2', '3', '4', 'a', 'b', 'c', 'd', '1'}, 
+	Assertions.assertArrayEquals(new char[]{'2', '3', '4', 'a', 'b', 'c', 'd', '1'},
 		l_inputs);
    }
 }

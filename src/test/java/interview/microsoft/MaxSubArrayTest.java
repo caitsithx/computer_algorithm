@@ -1,41 +1,34 @@
 package interview.microsoft;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * Created by caitsithx on 14-6-5.
  */
-@RunWith(Parameterized.class)
 public class MaxSubArrayTest {
-    private int[] array;
-    private int max;
 
-    public MaxSubArrayTest(int[] array, int max) {
-        this.array = array;
-        this.max = max;
+    public static Stream<Arguments> createData() {
+
+        return Stream.of(
+                Arguments.of(new int[]{0, 1, 2, 3}, 6),
+                Arguments.of(new int[]{0, 1, 2, -4, -1, 3, -3, 1}, 3),
+                Arguments.of(new int[]{0, 1, 2, -2, 1, -4, 0}, 3),
+                Arguments.of(new int[]{0, -1, -2, -1, 2, -1}, 2),
+                Arguments.of(new int[]{0, -1, -2, -1, -3, -1}, 0),
+                Arguments.of(new int[]{-1, -2, -1, -3, -1}, -1)
+        );
     }
 
-    @Parameterized.Parameters
-    public static final Iterable data() {
-        return Arrays.asList(
-                new Object[][]{
-                        {new int[]{0, 1, 2, 3}, 6},
-                        {new int[]{0, 1, 2, -4, -1, 3, -3, 1}, 3},
-                        {new int[]{0, 1, 2, -2, 1, -4, 0}, 3},
-                        {new int[]{0, -1, -2, -1, 2, -1}, 2},
-                        {new int[]{0, -1, -2, -1, -3, -1}, 0},
-                        {new int[]{-1, -2, -1, -3, -1}, -1},
-                });
-    }
 
-    @Test
-    public void testMethod() {
+    @ParameterizedTest
+    @MethodSource("createData")
+    public void testMethod(int[] array, int max) {
         MaxSubArray msa = new MaxSubArray();
-        Assert.assertEquals(max, msa.maxSubArray(array));
+        Assertions.assertEquals(max, msa.maxSubArray(array));
     }
 }

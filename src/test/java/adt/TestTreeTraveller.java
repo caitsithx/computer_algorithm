@@ -1,6 +1,6 @@
 package adt;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by caitsithx on 2016/4/26.

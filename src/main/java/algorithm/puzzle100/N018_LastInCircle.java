@@ -16,7 +16,7 @@ July：我想，这个题目，不少人已经 见识过了。
 package algorithm.puzzle100;
 
 import algorithm.puzzle100.struct.IntNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>

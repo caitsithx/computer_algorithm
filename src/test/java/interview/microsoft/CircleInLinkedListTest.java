@@ -1,27 +1,19 @@
 package interview.microsoft;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * Created by caitsithx on 14-6-9.
  */
-@RunWith(Parameterized.class)
 public class CircleInLinkedListTest {
-    private Node head;
-    private boolean hasCircle;
-
-    public CircleInLinkedListTest(Node head, boolean hasCircle) {
-        this.head = head;
-        this.hasCircle = hasCircle;
-    }
-
-    @Parameterized.Parameters
-    public static final Iterable data() {
+    public static Stream<Arguments> createData() {
         Node node2 = new Node(3, null);
         Node node1 = new Node(2, node2);
         Node head1 = new Node(1, node1);
@@ -39,16 +31,16 @@ public class CircleInLinkedListTest {
         Node head3 = new Node(1, node31);
         node33.next = head3;
 
-        return Arrays.asList(
-                new Object[][]{
-                        {head1, false}, {head2, true}, {head3, true}
-
-                });
+        return Stream.of(
+                Arguments.of(head1, false),
+                Arguments.of(head2, true),
+                Arguments.of(head3, true)
+        );
     }
 
-
-    @Test
-    public void test() {
-        Assert.assertEquals(hasCircle, CircleInLinkedList.hasCircle(head));
+    @ParameterizedTest
+    @MethodSource("createData")
+    public void test(Node head, boolean hasCircle) {
+        Assertions.assertEquals(hasCircle, CircleInLinkedList.hasCircle(head));
     }
 }

@@ -6,9 +6,9 @@
  */
 package interview;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -32,16 +32,16 @@ public class Itv01_Q03_Binary1Finder {
    
    @Test
    public void case1() {
-	Assert.assertEquals(1, find(1));
-	Assert.assertEquals(1, find(2));
-	Assert.assertEquals(2, find(3));
-	Assert.assertEquals(1, find(4));
-	Assert.assertEquals(2, find(5));
-	Assert.assertEquals(2, find(6));
-	Assert.assertEquals(3, find(7));
-	Assert.assertEquals(1, find(8));
+	Assertions.assertEquals(1, find(1));
+	Assertions.assertEquals(1, find(2));
+	Assertions.assertEquals(2, find(3));
+	Assertions.assertEquals(1, find(4));
+	Assertions.assertEquals(2, find(5));
+	Assertions.assertEquals(2, find(6));
+	Assertions.assertEquals(3, find(7));
+	Assertions.assertEquals(1, find(8));
 	
-	Assert.assertEquals(3, find(-7));
+	Assertions.assertEquals(3, find(-7));
    }
    
 }

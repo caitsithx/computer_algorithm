@@ -14,7 +14,7 @@ package algorithm.puzzle100;
 
 import adt.ArrayBasedStack;
 import algorithm.puzzle100.struct.IStack;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>

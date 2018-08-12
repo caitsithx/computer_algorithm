@@ -1,4 +1,4 @@
-package amz;
+package interview.amz;
 
 import java.io.BufferedReader;
 import java.io.IOException;

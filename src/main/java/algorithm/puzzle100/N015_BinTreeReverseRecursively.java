@@ -33,7 +33,7 @@ struct BSTreeNode // a node in the binary search tree (BST)
 package algorithm.puzzle100;
 
 import adt.TreeNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>

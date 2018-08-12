@@ -4,8 +4,8 @@
  */
 package algorithm.sort;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -90,7 +90,7 @@ public class QuickSort {
    @Test
    public void case1() {
 	int[] l_input = {1, 2, 3, 4, 5, 6};
-	Assert.assertEquals(4, median3(l_input, 0, (l_input.length) / 2, l_input.length - 1));
+	Assertions.assertEquals(4, median3(l_input, 0, (l_input.length) / 2, l_input.length - 1));
    }
    
    @Test
@@ -98,21 +98,21 @@ public class QuickSort {
 	int[] l_array = {1, 2, 3, 1, 3, 7};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
+	Assertions.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
 	
 	l_array = new int[]{1, 2, 3, 1, 3, 7, 0};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{0, 1, 1, 2, 3, 3, 7}, l_array);
+	Assertions.assertArrayEquals(new int[]{0, 1, 1, 2, 3, 3, 7}, l_array);
 	
 	l_array = new int[]{0};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{0}, l_array);
+	Assertions.assertArrayEquals(new int[]{0}, l_array);
 	
 	l_array = new int[]{0, 3, 1};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{0, 1, 3}, l_array);
+	Assertions.assertArrayEquals(new int[]{0, 1, 3}, l_array);
    }
 }

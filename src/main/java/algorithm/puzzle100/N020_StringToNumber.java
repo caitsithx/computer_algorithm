@@ -11,8 +11,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -64,6 +64,6 @@ public class N020_StringToNumber {
             l_ex = l_ex1;
         }
 
-        Assert.assertNotNull(l_ex);
+        Assertions.assertNotNull(l_ex);
     }
 }

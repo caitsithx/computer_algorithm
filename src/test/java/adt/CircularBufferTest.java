@@ -1,7 +1,7 @@
 package adt;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by caitsithx on 14-5-29.
@@ -17,9 +17,9 @@ public class CircularBufferTest {
             System.err.println(cb);
         }
 
-        Assert.assertEquals(cb.add(4), false);
+        Assertions.assertEquals(cb.add(4), false);
 
-        Assert.assertEquals(cb.size(), 4);
+        Assertions.assertEquals(cb.size(), 4);
 
         System.err.println();
 

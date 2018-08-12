@@ -4,8 +4,8 @@
  */
 package algorithm.sort;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -76,7 +76,7 @@ public class MergeSort {
 	int[] l_tmp = new int[l_array.length];
 	merge(l_array, l_tmp, 0, (l_array.length)/ 2, l_array.length - 1);
 
-	Assert.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
+	Assertions.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
    }
 
    @Test
@@ -84,16 +84,16 @@ public class MergeSort {
 	int[] l_array = {1, 2, 3, 1, 3, 7};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
+	Assertions.assertArrayEquals(new int[]{1, 1, 2, 3, 3, 7}, l_array);
 	
 	l_array = new int[]{1, 2, 3, 1, 3, 7, 0};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{0, 1, 1, 2, 3, 3, 7}, l_array);
+	Assertions.assertArrayEquals(new int[]{0, 1, 1, 2, 3, 3, 7}, l_array);
 	
 	l_array = new int[]{0};
 	sort(l_array);
 
-	Assert.assertArrayEquals(new int[]{0}, l_array);
+	Assertions.assertArrayEquals(new int[]{0}, l_array);
    }
 }

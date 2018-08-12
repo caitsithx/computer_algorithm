@@ -17,7 +17,7 @@ struct ListNode
 package algorithm.puzzle100;
 
 import algorithm.puzzle100.struct.IntNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @param <T>

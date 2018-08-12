@@ -16,8 +16,8 @@ outputstr所指的值为123456789
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -58,6 +58,6 @@ public class N025_MaxDigitSequence {
 		's', 's', 'e', 'w', '5', '4', '5', '4', '6', '4', '7', '7', '7', 's', 'd', 's', '1', 
 		'2', '2'});
 	
-	Assert.assertArrayEquals(new char[]{'5', '4', '5', '4', '6', '4', '7', '7', '7'}, l_result);
+	Assertions.assertArrayEquals(new char[]{'5', '4', '5', '4', '6', '4', '7', '7', '7'}, l_result);
    }
 }

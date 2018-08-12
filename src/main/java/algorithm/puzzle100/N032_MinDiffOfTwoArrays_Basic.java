@@ -7,7 +7,7 @@ package algorithm.puzzle100;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import adt.ArrayBasedStack;
 

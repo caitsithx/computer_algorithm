@@ -2,7 +2,7 @@ package leetcode.topeasy.array.rotate;
 
 import java.util.Arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Solution1 {
    public void rotate(int[] nums, int k) {

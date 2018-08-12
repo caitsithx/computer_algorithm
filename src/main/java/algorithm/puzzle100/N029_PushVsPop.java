@@ -18,8 +18,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import adt.ArrayBasedStack;
 
@@ -74,26 +74,26 @@ public class N029_PushVsPop {
    
    @Test
    public void case1() {
-	Assert.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3, 2, 1}));
+	Assertions.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3, 2, 1}));
    }
    
    @Test
    public void case2() {
-	Assert.assertFalse(judge(new int[]{1, 2, 3, 4, 5, 6}, new int[]{6, 5, 4, 3, 1, 2}));
+	Assertions.assertFalse(judge(new int[]{1, 2, 3, 4, 5, 6}, new int[]{6, 5, 4, 3, 1, 2}));
    }
    
    @Test
    public void case3() {
-	Assert.assertFalse(judge(new int[]{1, 2, 3, 4, 5}, new int[]{6, 5, 4, 3, 1, 2}));
+	Assertions.assertFalse(judge(new int[]{1, 2, 3, 4, 5}, new int[]{6, 5, 4, 3, 1, 2}));
    }
    
    @Test
    public void case4() {
-	Assert.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3}));
+	Assertions.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3}));
    }
    
    @Test
    public void case5() {
-	Assert.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{4, 5, 3, 2, 1}));
+	Assertions.assertTrue(judge(new int[]{1, 2, 3, 4, 5}, new int[]{4, 5, 3, 2, 1}));
    }
 }

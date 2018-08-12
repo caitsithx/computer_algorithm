@@ -1,4 +1,4 @@
-package amz;
+package interview.amz;
 
 import java.util.ArrayList;
 import java.util.Arrays;

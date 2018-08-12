@@ -6,9 +6,9 @@
  */
 package interview;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -25,16 +25,16 @@ public class Itv01_Q02_PowerBy2Judger{
 
    @Test
    public void case1() {
-	Assert.assertTrue(judge(-1));
-	Assert.assertTrue(judge(1));
-	Assert.assertTrue(judge(2));
-	Assert.assertTrue(judge(4));
-	Assert.assertTrue(judge(8));
-	Assert.assertTrue(judge(16));
-	Assert.assertTrue(judge(32));
+	Assertions.assertTrue(judge(-1));
+	Assertions.assertTrue(judge(1));
+	Assertions.assertTrue(judge(2));
+	Assertions.assertTrue(judge(4));
+	Assertions.assertTrue(judge(8));
+	Assertions.assertTrue(judge(16));
+	Assertions.assertTrue(judge(32));
 	
-	Assert.assertFalse(judge(3));
-	Assert.assertFalse(judge(6));
-	Assert.assertFalse(judge(7));
+	Assertions.assertFalse(judge(3));
+	Assertions.assertFalse(judge(6));
+	Assertions.assertFalse(judge(7));
    }
 }

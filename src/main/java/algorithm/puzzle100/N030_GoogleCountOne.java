@@ -20,9 +20,9 @@
  */
 package algorithm.puzzle100;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -60,10 +60,10 @@ public class N030_GoogleCountOne extends N030_GoogleCountOnebyRange{
    
    @Test
    public void case1_N030_GoogleCountOne() {
-	Assert.assertEquals(12, (countOne(new int[]{9, 1}, 19)));
-	Assert.assertEquals(20, (countOne(new int[]{9, 9}, 99)));
-	Assert.assertEquals(countOneBy9(3), (countOne(new int[]{9, 9, 9}, 999)));
-	Assert.assertEquals(countOneBy9(4), (countOne(new int[]{9, 9, 9, 9}, 9999)));
-	Assert.assertEquals(countOneByX9(1, 3), (countOne(new int[]{9, 9, 9, 1}, 1999)));
+	Assertions.assertEquals(12, (countOne(new int[]{9, 1}, 19)));
+	Assertions.assertEquals(20, (countOne(new int[]{9, 9}, 99)));
+	Assertions.assertEquals(countOneBy9(3), (countOne(new int[]{9, 9, 9}, 999)));
+	Assertions.assertEquals(countOneBy9(4), (countOne(new int[]{9, 9, 9, 9}, 9999)));
+	Assertions.assertEquals(countOneByX9(1, 3), (countOne(new int[]{9, 9, 9, 1}, 1999)));
    }
 }

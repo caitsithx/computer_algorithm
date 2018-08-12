@@ -1,6 +1,6 @@
 package leetcode.maxprofit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Solution {
    public int maxProfit(int[] prices) {

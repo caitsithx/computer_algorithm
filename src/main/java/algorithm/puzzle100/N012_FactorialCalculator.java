@@ -15,8 +15,8 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -38,6 +38,6 @@ public class N012_FactorialCalculator {
    public void case1() {
 	N012_FactorialCalculator l_calculator = new N012_FactorialCalculator();
 	
-	Assert.assertEquals(55, l_calculator.calculate1(10));
+	Assertions.assertEquals(55, l_calculator.calculate1(10));
    }
 }

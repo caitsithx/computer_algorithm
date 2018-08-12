@@ -16,7 +16,7 @@ f(n)= 1 n=1
  */
 package algorithm.puzzle100;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

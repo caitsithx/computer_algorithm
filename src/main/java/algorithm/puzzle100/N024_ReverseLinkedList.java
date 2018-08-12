@@ -12,7 +12,7 @@
  */
 package algorithm.puzzle100;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import algorithm.puzzle100.struct.Node;
 

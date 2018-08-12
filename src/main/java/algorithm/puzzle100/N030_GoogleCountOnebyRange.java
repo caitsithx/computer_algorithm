@@ -18,8 +18,8 @@
 package algorithm.puzzle100;
 
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:caitsithx@gmail.com">豆SHA冰棒 </a>
@@ -75,16 +75,16 @@ public class N030_GoogleCountOnebyRange {
 
     @Test
     public void case1_N030_GoogleCountOnebyRange() {
-        Assert.assertEquals(1, (countOneBy9(1))); //9
-        Assert.assertEquals(20, (countOneBy9(2))); //99
-        Assert.assertEquals(300, (countOneBy9(3))); //999
+        Assertions.assertEquals(1, (countOneBy9(1))); //9
+        Assertions.assertEquals(20, (countOneBy9(2))); //99
+        Assertions.assertEquals(300, (countOneBy9(3))); //999
     }
 
     @Test
     public void case2_N030_GoogleCountOnebyRange() {
-        Assert.assertEquals(12, (countOneByX9(1, 1))); //19
-        Assert.assertEquals(160, (countOneByX9(2, 2))); //299
-        Assert.assertEquals(280, (countOneByX9(8, 2))); //899
-        Assert.assertEquals(countOneBy9(3), (countOneByX9(9, 2))); //999
+        Assertions.assertEquals(12, (countOneByX9(1, 1))); //19
+        Assertions.assertEquals(160, (countOneByX9(2, 2))); //299
+        Assertions.assertEquals(280, (countOneByX9(8, 2))); //899
+        Assertions.assertEquals(countOneBy9(3), (countOneByX9(9, 2))); //999
     }
 }
