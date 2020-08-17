@@ -1,4 +1,4 @@
-package leetcode.revertwordinsentense;
+package leetcode.string.revertwordinsentense;
 
 import static java.lang.System.out;
 
@@ -12,7 +12,7 @@ public class Solution {
    public String reverseWords(String s) {
       String[] words = s.trim().split(" ");
 
-      out.println(Arrays.toString(words));
+      System.out.println(Arrays.toString(words));
 
       StringBuilder builder = new StringBuilder();
       for(int i = words.length - 1; i >= 0; i --) {

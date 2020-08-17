@@ -1,4 +1,4 @@
-package leetcode.longestcommonprefix;
+package leetcode.string.longestcommonprefix;
 
 import java.util.Arrays;
 import java.util.Comparator;

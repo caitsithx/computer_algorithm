@@ -1,4 +1,4 @@
-package leetcode.substringwithconcatenationofallwords;
+package leetcode.string.substringwithconcatenationofallwords;
 
 import java.util.ArrayList;
 import java.util.Arrays;
